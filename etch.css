@@ -1,0 +1,34 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#gridContainer {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: beige;
+}
+
+#gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 0;
+}
+
+.cell {
+    height: auto;
+    width: auto;
+    background: black;
+    border: solid 1px lightgrey;
+    transition: ease;
+}
+
+.cell:hover {
+    background: lightgrey;
+}
