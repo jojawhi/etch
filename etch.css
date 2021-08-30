@@ -1,3 +1,7 @@
+:root {
+
+}
+
 *,
 *::before,
 *::after {
@@ -11,7 +15,7 @@ body,
     width: 100%;
     padding: 2rem;
     margin: 0;
-    background: beige;
+    background: white;
 }
 
 #gridContainer {
@@ -26,11 +30,10 @@ body,
 .cell {
     height: auto;
     width: auto;
-    background: black;
-    border: solid 1px lightgrey;
-    transition: ease;
+    background: lightgrey;
+    border: solid 0.5px white;
 }
 
 .hoverCell {
-    background: lightblue;
+    background-color: teal;
 }

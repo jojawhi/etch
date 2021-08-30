@@ -10,10 +10,15 @@
 </head>
 <body>
     <div id="buttonContainer">
-        <label for="cellInput">How many rows and columns do you want?</label>
-        <input type="text" name="cellInput" id="cellInput">
-        <button id="generateBtn" class="btn">Generate Grid</button>
+        <label for="rowInput"># of Rows</label>
+        <input type="text" name="rowInput" id="rowInput">
+        <label for="colInput"># of Columns</label>
+        <input type="text" name="colInput" id="colInput">
+        <button id="customGridBtn" class="btn">Generate Custom Grid</button>
+        <button id="grid64Btn" class="btn">64 x 64</button>
+        <button id="grid100Btn" class="btn">100 x 100</button>
         <button id="darkModeBtn" class="btn">Dark Mode</button>
+        <button id="funkyBtn" class="btn">Funky Mode</button>
     </div>
     <div id="gridContainer"></div>
 </body>
