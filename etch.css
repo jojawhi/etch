@@ -9,15 +9,17 @@ body,
 #gridContainer {
     height: 100%;
     width: 100%;
-    padding: 0;
+    padding: 2rem;
     margin: 0;
     background: beige;
 }
 
 #gridContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    /*
+    grid-template-columns: repeat(auto-fit, minmax(10px, 50%));
+    grid-template-rows: repeat(auto-fit, minmax(10px, 50%));
+    */
     grid-gap: 0;
 }
 
@@ -29,6 +31,6 @@ body,
     transition: ease;
 }
 
-.cell:hover {
-    background: lightgrey;
+.hoverCell {
+    background: lightblue;
 }
