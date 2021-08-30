@@ -1,5 +1,14 @@
 :root {
-
+    --neutral-1: hsl(0, 0%, 90%);
+    --neutral-2: hsl(0, 0%, 80%);
+    --neutral-3: hsl(0, 0%, 70%);
+    --neutral-4: hsl(0, 0%, 60%);
+    --neutral-5: hsl(0, 0%, 50%);
+    --neutral-6: hsl(0, 0%, 40%);
+    --neutral-7: hsl(0, 0%, 30%);
+    --neutral-8: hsl(0, 0%, 20%);
+    --neutral-9: hsl(0, 0%, 10%);
+    --neutral-10: hsl(0, 0%, 0%);
 }
 
 *,
@@ -30,8 +39,8 @@ body,
 .cell {
     height: auto;
     width: auto;
-    background: lightgrey;
-    border: solid 0.5px white;
+    background: white;
+    border: solid 0.5px lightgrey;
 }
 
 .hoverCell {

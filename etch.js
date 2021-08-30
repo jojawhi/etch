@@ -42,6 +42,7 @@ function setRandomBackground() {
 
 let numberOfRows = 0;
 let numberOfColumns = 0;
+let timesHovered = 0;
 
 function setRows(numberOfRows) {
     gridContainer.style.cssText = `grid-template-rows: repeat(${numberOfRows}, minmax(10px, 50%))`;
@@ -65,11 +66,23 @@ function createCell() {
     });
     */
 
-    
+    // Fade to black
+
+    gridCell.addEventListener("mouseenter", () => {
+        timesHovered++;
+        if (timesHovered <= 10) {
+            gridCell.style.backgroundColor = `var(--neutral-${timesHovered})`;
+        }
+    });
+
+    // Single colour
+    /*
     gridCell.addEventListener("mouseenter", () => {
         gridCell.classList.add("hoverCell");
     });
-    
+    */
+
+    // Remove single colour
     /*
     gridCell.addEventListener("mouseleave", () => {
         gridCell.classList.remove("hoverCell");
