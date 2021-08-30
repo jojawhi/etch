@@ -43,21 +43,32 @@ function createCell() {
     });
 }
 
+
+
 function createGrid() {
 
-    let numberOfCells = prompt("How many CELLS do you want per side?");
+    let numberOfCells = document.getElementById("cellInput").value;
     setRows(numberOfCells);
     setColumns(numberOfCells);
 
     let i = 0;
 
-    while (i < (numberOfCells * numberOfCells)) {
-        createCell();
-        i++;
+    if ( numberOfCells <= 100 && numberOfCells >= 2) {
+        while (i < (numberOfCells * numberOfCells)) {
+            createCell();
+            i++;
+        }
+    } else {
+        alert("Please enter a number between 2 and 100.")
     }
 }
 
-createGrid();
+const generateBtn = document.querySelector("#generateBtn");
+generateBtn.addEventListener("click", () => {
+    createGrid();
+});
+
+
 
 
 
