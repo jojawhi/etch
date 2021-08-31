@@ -1,5 +1,6 @@
 const gridContainer = document.querySelector("#gridContainer");
 
+
 /*
 function createCells(numberOfCells) {
     
@@ -25,24 +26,22 @@ createCells(16);
 
 //Random colour mode
 
-const funkyBtn = document.querySelector("#funkyBtn");
 
-funkyBtn.addEventListener("click", () => {
-    alert("funkyBtn pressed");
-});
 
+/*
 function setRandomBackground() {
     const randomColour = Math.floor(Math.random()*16777215).toString(16);
-    gridCell.addEventListener("mouseenter", () => {
-        gridCell.style.backgroundColor = "#" + randomColour + " !important";
+    gridCell.addEventListener("mouseover", () => {
+        gridCell.style.backgroundColor = "#" + randomColour;
     });
 }
+*/
 
 // Grid Functions
 
-let numberOfRows = 0;
-let numberOfColumns = 0;
-let timesHovered = 0;
+let numberOfRows = 20;
+let numberOfColumns = 20;
+
 
 function setRows(numberOfRows) {
     gridContainer.style.cssText = `grid-template-rows: repeat(${numberOfRows}, minmax(10px, 50%))`;
@@ -56,38 +55,20 @@ function setColumns(numberOfColumns) {
 function createCell() {
     let gridCell = document.createElement("div");
     gridCell.classList.add("cell");
-    gridContainer.appendChild(gridCell);
-    
-    //Random colour
-    /*
-    const randomColour = Math.floor(Math.random()*16777215).toString(16);
-    gridCell.addEventListener("mouseenter", () => {
-        gridCell.style.backgroundColor = "#" + randomColour;
+
+    // Single colour default
+    gridCell.addEventListener("mouseover", () => {
+        gridCell.style.backgroundColor = "teal";
     });
-    */
 
-    // Fade to black
+    let timesHovered = 0;
 
-    gridCell.addEventListener("mouseenter", () => {
+    gridCell.addEventListener("mouseover", () => {
         timesHovered++;
-        if (timesHovered <= 10) {
-            gridCell.style.backgroundColor = `var(--neutral-${timesHovered})`;
-        }
-    });
+    })
+    
 
-    // Single colour
-    /*
-    gridCell.addEventListener("mouseenter", () => {
-        gridCell.classList.add("hoverCell");
-    });
-    */
-
-    // Remove single colour
-    /*
-    gridCell.addEventListener("mouseleave", () => {
-        gridCell.classList.remove("hoverCell");
-    });
-    */
+    gridContainer.appendChild(gridCell);
 }
 
 
@@ -105,6 +86,16 @@ function createGrid() {
     }
 }
 
+setRows(numberOfRows);
+setColumns(numberOfColumns);
+createGrid();
+
+const cells = document.querySelectorAll(".cell");
+
+
+
+// Buttons
+
 const customGridBtn = document.querySelector("#customGridBtn");
 
 customGridBtn.addEventListener("click", () => {
@@ -120,6 +111,43 @@ customGridBtn.addEventListener("click", () => {
 
 });
 
+
+// Full Clear and Selective Erase, currently works on first load but not after making custom grid or 64x64 or 100x100
+
+const clearBtn = document.querySelector("#clearBtn");
+clearBtn.addEventListener("click", () => {
+    cells.forEach(item => {
+        item.style.backgroundColor = "";
+    })
+});
+
+const eraserBtn = document.querySelector("#eraserBtn");
+eraserBtn.addEventListener("click", () =>{
+    cells.forEach(item => {
+        item.addEventListener("mouseover", (e) => {
+            e.target.style.backgroundColor = "";
+        });
+    });
+});
+
+
+//Random colour mode, currently works on first load but not after making custom grid or 64x64 or 100x100
+
+const funkyBtn = document.querySelector("#funkyBtn");
+funkyBtn.addEventListener("click", () => {
+    cells.forEach(item => {
+        item.addEventListener("mouseover", (e) => {
+            let red = Math.floor(Math.random() * 255);
+            let green = Math.floor(Math.random() * 255);
+            let blue = Math.floor(Math.random() * 255);
+            let randomColour = `rgb(${red}, ${green}, ${blue})`;
+
+            e.target.style.backgroundColor = randomColour;
+        });
+    });
+});
+
+
 // Auto-generate buttons
 
 const grid64Btn = document.querySelector("#grid64Btn");
@@ -134,8 +162,6 @@ grid64Btn.addEventListener("click", () => {
     createGrid();
 });
 
-
-
 const grid100Btn = document.querySelector("#grid100Btn");
 grid100Btn.addEventListener("click", () => {
 
@@ -149,3 +175,15 @@ grid100Btn.addEventListener("click", () => {
 });
 
 
+
+// Fade to black, does not work yet
+const darkModeBtn = document.querySelector("#darkModeBtn")
+darkModeBtn.addEventListener("click", () => {
+    
+    cells.forEach(item => {
+        item.addEventListener("mouseover", (e) => {
+            e.target.style.backgroundColor = `var(--neutral-${timesHovered})`;
+        });
+    });
+
+});

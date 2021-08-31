@@ -43,6 +43,6 @@ body,
     border: solid 0.5px lightgrey;
 }
 
-.hoverCell {
-    background-color: teal;
+input {
+    width: 3rem;
 }
