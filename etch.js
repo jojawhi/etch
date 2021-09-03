@@ -1,8 +1,6 @@
 const gridContainer = document.querySelector("#gridContainer");
 
-const inputColor = document.querySelector("#inputColor");
-
-let colorChoice = black;
+let colorChoice = "black";
 
 
 
@@ -146,6 +144,19 @@ function changeGridSize() {
 sizeSlider.addEventListener("input", () => {
     changeGridSize();
 });
+
+
+// Colour picker
+
+const inputColor = document.querySelector("#inputColor");
+
+function userColorSelection(event) {
+    colorChoice = event.target.value;
+}
+
+inputColor.addEventListener("change", userColorSelection, false);
+inputColor.addEventListener("input", userColorSelection, false);
+
 
 
 /*
