@@ -9,19 +9,23 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <div id="buttonContainer">
-        <label for="rowInput"># of Rows</label>
-        <input type="text" name="rowInput" id="rowInput">
-        <label for="colInput"># of Columns</label>
-        <input type="text" name="colInput" id="colInput">
-        <button id="customGridBtn" class="btn">Generate Custom Grid</button>
-        <button id="grid64Btn" class="btn">64 x 64</button>
-        <button id="grid100Btn" class="btn">100 x 100</button>
-        <button id="darkModeBtn" class="btn">Dark Mode</button>
-        <button id="funkyBtn" class="btn">Funky Mode</button>
-        <button id="eraserBtn" class="btn">Eraser</button>
-        <button id="clearBtn" class="btn">Clear Grid</button>
+    <div id="pageContainer">
+        <div id="buttonContainer">
+            <label for="inputColor">Pen Colour</label>
+            <input type="color" name="inputColor" id="inputColor" value="#000000">
+            <button id="customGridBtn" class="btn">Generate Custom Grid</button>
+            <!--
+            <button id="grid64Btn" class="btn">64 x 64</button>
+            <button id="grid100Btn" class="btn">100 x 100</button>
+            -->
+            <button id="darkModeBtn" class="btn">Dark Mode</button>
+            <button id="funkyBtn" class="btn">Funky Mode</button>
+            <button id="eraserBtn" class="btn">Eraser</button>
+            <button id="clearBtn" class="btn">Clear Grid</button>
+            <label for="sizeSlider">Grid Size</label>
+            <input type="range" name="sizeSlider" id="sizeSlider" class="slider" min="2" max="100" value="20">
+        </div>
+        <div id="gridContainer"></div>
     </div>
-    <div id="gridContainer"></div>
 </body>
 </html>

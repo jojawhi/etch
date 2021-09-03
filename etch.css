@@ -1,14 +1,15 @@
 :root {
-    --neutral-1: hsl(0, 0%, 90%);
-    --neutral-2: hsl(0, 0%, 80%);
-    --neutral-3: hsl(0, 0%, 70%);
-    --neutral-4: hsl(0, 0%, 60%);
-    --neutral-5: hsl(0, 0%, 50%);
-    --neutral-6: hsl(0, 0%, 40%);
-    --neutral-7: hsl(0, 0%, 30%);
-    --neutral-8: hsl(0, 0%, 20%);
-    --neutral-9: hsl(0, 0%, 10%);
-    --neutral-10: hsl(0, 0%, 0%);
+    --white-1: hsl(45, 50%, 95%);
+    --grey-1: hsl(0, 0%, 90%);
+    --grey-2: hsl(0, 0%, 80%);
+    --grey-3: hsl(0, 0%, 70%);
+    --grey-4: hsl(0, 0%, 60%);
+    --grey-5: hsl(0, 0%, 50%);
+    --grey-6: hsl(0, 0%, 40%);
+    --grey-7: hsl(0, 0%, 30%);
+    --grey-8: hsl(0, 0%, 20%);
+    --grey-9: hsl(0, 0%, 10%);
+    --grey-10: hsl(0, 0%, 0%);
 }
 
 *,
@@ -19,12 +20,19 @@
 
 html,
 body,
-#gridContainer {
+#pageContainer {
+    display: flex;
     height: 100%;
     width: 100%;
     padding: 2rem;
     margin: 0;
-    background: white;
+    background: var(--white-1);
+}
+
+#buttonContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 15%;
 }
 
 #gridContainer {
@@ -34,6 +42,11 @@ body,
     grid-template-rows: repeat(auto-fit, minmax(10px, 50%));
     */
     grid-gap: 0;
+    height: 70%;
+    width: 70%;
+    margin-left: 2rem;
+    padding: 0;
+    border: 1px solid var(--neutral-4);
 }
 
 .cell {
@@ -43,6 +56,10 @@ body,
     border: solid 0.5px lightgrey;
 }
 
+.btn {
+    margin-top: 1rem;
+}
+
 input {
-    width: 3rem;
+    width: auto;
 }

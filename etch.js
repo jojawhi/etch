@@ -1,5 +1,10 @@
 const gridContainer = document.querySelector("#gridContainer");
 
+const inputColor = document.querySelector("#inputColor");
+
+let colorChoice = black;
+
+
 
 /*
 function createCells(numberOfCells) {
@@ -39,10 +44,6 @@ function setRandomBackground() {
 
 // Grid Functions
 
-let numberOfRows = 20;
-let numberOfColumns = 20;
-
-
 function setRows(numberOfRows) {
     gridContainer.style.cssText = `grid-template-rows: repeat(${numberOfRows}, minmax(10px, 50%))`;
 }
@@ -51,66 +52,51 @@ function setColumns(numberOfColumns) {
     gridContainer.style.cssText = `grid-template-columns: repeat(${numberOfColumns}, minmax(10px, 50%))`;
 }
 
-
 function createCell() {
     let gridCell = document.createElement("div");
     gridCell.classList.add("cell");
 
     // Single colour default
+
     gridCell.addEventListener("mouseover", () => {
-        gridCell.style.backgroundColor = "teal";
+        gridCell.style.backgroundColor = `${colorChoice}`;
     });
-
-    let timesHovered = 0;
-
-    gridCell.addEventListener("mouseover", () => {
-        timesHovered++;
-    })
     
 
     gridContainer.appendChild(gridCell);
+
+    /*
+    gridCell.addEventListener("mouseover", (e) => {
+        let timesHovered = 0;
+        timesHovered++;
+        e.style.backgroundColor = `var(--neutral-${timesHovered})`;
+    });
+    */
 }
 
+function createGrid(gridNumber) {
 
-function createGrid() {
+    setRows(gridNumber);
+    setColumns(gridNumber);
+
+    let gridArea = gridNumber * gridNumber;
 
     let i = 0;
 
-    if (numberOfRows <= 100 && numberOfRows >= 2 && numberOfColumns <= 100 && numberOfColumns >= 2) {
-        while (i < (numberOfRows * numberOfColumns)) {
-            createCell();
-            i++;
-        }
-    } else {
-        alert("Please enter a number between 2 and 100.")
+    while (i < gridArea) {
+        createCell();
+        i++;
     }
+
 }
 
-setRows(numberOfRows);
-setColumns(numberOfColumns);
-createGrid();
+createGrid(20);
 
 const cells = document.querySelectorAll(".cell");
 
 
 
 // Buttons
-
-const customGridBtn = document.querySelector("#customGridBtn");
-
-customGridBtn.addEventListener("click", () => {
-
-    numberOfRows = document.getElementById("rowInput").value;
-    numberOfColumns = document.getElementById("colInput").value;
-
-    setRows(numberOfRows);
-    setColumns(numberOfColumns);
-
-    gridContainer.textContent = "";
-    createGrid();
-
-});
-
 
 // Full Clear and Selective Erase, currently works on first load but not after making custom grid or 64x64 or 100x100
 
@@ -148,6 +134,21 @@ funkyBtn.addEventListener("click", () => {
 });
 
 
+// Slider
+
+const sizeSlider = document.querySelector("#sizeSlider");
+
+function changeGridSize() {
+    gridContainer.textContent = "";
+    createGrid(sizeSlider.value);
+}
+
+sizeSlider.addEventListener("input", () => {
+    changeGridSize();
+});
+
+
+/*
 // Auto-generate buttons
 
 const grid64Btn = document.querySelector("#grid64Btn");
@@ -173,17 +174,19 @@ grid100Btn.addEventListener("click", () => {
     gridContainer.textContent = "";
     createGrid();
 });
+*/
 
-
-
+/*
 // Fade to black, does not work yet
 const darkModeBtn = document.querySelector("#darkModeBtn")
 darkModeBtn.addEventListener("click", () => {
     
     cells.forEach(item => {
         item.addEventListener("mouseover", (e) => {
+            let timesHovered = 0;
+            timeHovered++;
             e.target.style.backgroundColor = `var(--neutral-${timesHovered})`;
         });
     });
-
 });
+*/
