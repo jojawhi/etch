@@ -90,23 +90,23 @@ function createGrid(gridNumber) {
 
 createGrid(20);
 
-const cells = document.querySelectorAll(".cell");
-
 
 
 // Buttons
 
-// Full Clear and Selective Erase, currently works on first load but not after making custom grid or 64x64 or 100x100
+// Full Clear and Selective Erase, now works after resizing grid, but cannot go back to colour picker
 
 const clearBtn = document.querySelector("#clearBtn");
 clearBtn.addEventListener("click", () => {
+    const cells = document.querySelectorAll(".cell");
     cells.forEach(item => {
-        item.style.backgroundColor = "";
+        item.style.backgroundColor = "#ffffff";
     })
 });
 
 const eraserBtn = document.querySelector("#eraserBtn");
 eraserBtn.addEventListener("click", () =>{
+    const cells = document.querySelectorAll(".cell");
     cells.forEach(item => {
         item.addEventListener("mouseover", (e) => {
             e.target.style.backgroundColor = "";
@@ -115,10 +115,11 @@ eraserBtn.addEventListener("click", () =>{
 });
 
 
-//Random colour mode, currently works on first load but not after changing grid size
+//Random colour mode, currently works on first load but not after resizing grid
 
 const funkyBtn = document.querySelector("#funkyBtn");
 funkyBtn.addEventListener("click", () => {
+    const cells = document.querySelectorAll(".cell");
     cells.forEach(item => {
         item.addEventListener("mouseover", (e) => {
             let red = Math.floor(Math.random() * 255);
@@ -143,17 +144,19 @@ function changeGridSize() {
 
 sizeSlider.addEventListener("input", () => {
     changeGridSize();
-    gridSizeText.textContent = sizeSlider.value;
+    gridSizeText.textContent = sizeSlider.value + " x " + sizeSlider.value;
 });
 
 const gridSizeLabel = document.querySelector("#gridSizeLabel");
-let gridSize = sizeSlider.value;
 const gridSizeText = document.createElement("p");
-gridSizeText.textContent = gridSize;
+gridSizeText.textContent = sizeSlider.value + " x " + sizeSlider.value;
 gridSizeLabel.appendChild(gridSizeText);
+
 
 // Colour picker
 
+//This solution taken from github repo of rlmoser99, don't fully understand how it works yet
+// Also does not work after selecting eraser or random colour mode
 const inputColor = document.querySelector("#inputColor");
 
 function userColorSelection(event) {
@@ -162,6 +165,18 @@ function userColorSelection(event) {
 
 inputColor.addEventListener("change", userColorSelection, false);
 inputColor.addEventListener("input", userColorSelection, false);
+
+
+// Grid Lines
+
+const gridLinesBtn = document.querySelector("#gridLinesBtn");
+
+gridLinesBtn.addEventListener("click", () => {
+    const cells = document.querySelectorAll(".cell"); //adding this here made it work after resizing
+    cells.forEach(item => {
+        item.classList.toggle("cellNoBorder");
+    });   
+});
 
 
 

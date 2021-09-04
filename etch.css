@@ -53,7 +53,14 @@ body,
     height: auto;
     width: auto;
     background: white;
-    border: solid 0.5px lightgrey;
+    border: 0.5px solid lightgrey;
+}
+
+.cellNoBorder {
+    height: auto;
+    width: auto;
+    background: white;
+    border: none;
 }
 
 .btn {
