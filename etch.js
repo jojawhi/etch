@@ -43,11 +43,11 @@ function setRandomBackground() {
 // Grid Functions
 
 function setRows(numberOfRows) {
-    gridContainer.style.cssText = `grid-template-rows: repeat(${numberOfRows}, minmax(10px, 50%))`;
+    gridContainer.style.cssText = `grid-template-rows: repeat(${numberOfRows}, minmax(5px, 50%))`;
 }
 
 function setColumns(numberOfColumns) {
-    gridContainer.style.cssText = `grid-template-columns: repeat(${numberOfColumns}, minmax(10px, 50%))`;
+    gridContainer.style.cssText = `grid-template-columns: repeat(${numberOfColumns}, minmax(5px, 50%))`;
 }
 
 function createCell() {
@@ -115,7 +115,7 @@ eraserBtn.addEventListener("click", () =>{
 });
 
 
-//Random colour mode, currently works on first load but not after making custom grid or 64x64 or 100x100
+//Random colour mode, currently works on first load but not after changing grid size
 
 const funkyBtn = document.querySelector("#funkyBtn");
 funkyBtn.addEventListener("click", () => {
@@ -143,8 +143,14 @@ function changeGridSize() {
 
 sizeSlider.addEventListener("input", () => {
     changeGridSize();
+    gridSizeText.textContent = sizeSlider.value;
 });
 
+const gridSizeLabel = document.querySelector("#gridSizeLabel");
+let gridSize = sizeSlider.value;
+const gridSizeText = document.createElement("p");
+gridSizeText.textContent = gridSize;
+gridSizeLabel.appendChild(gridSizeText);
 
 // Colour picker
 

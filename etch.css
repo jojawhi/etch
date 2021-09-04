@@ -41,16 +41,12 @@ body,
 
 #gridContainer {
     display: grid;
-    /*
-    grid-template-columns: repeat(auto-fit, minmax(10px, 50%));
-    grid-template-rows: repeat(auto-fit, minmax(10px, 50%));
-    */
     grid-gap: 0;
-    height: 70%;
-    width: 70%;
+    height: 50rem;
+    width: 50rem;
     margin-left: 2rem;
     padding: 0;
-    border: 1px solid var(--neutral-4);
+    border: 2px solid var(--grey-4);
 }
 
 .cell {
