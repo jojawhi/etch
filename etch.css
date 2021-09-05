@@ -22,17 +22,33 @@ html,
 body,
 #pageContainer {
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
     height: 100%;
     width: 100%;
-    padding: 2rem;
+    padding: 0;
     margin: 0;
-    background: var(--white-1);
+    background: var(--grey-8);
+    font-family: Avenir, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
 }
 
 #buttonContainer {
-    display: flex;
-    flex-direction: column;
-    max-width: 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 20px;
+    align-items: space-evenly;
+    height: 25%;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+#gridSizeLabel,
+#sizeSlider {
+    display: none;
 }
 
 #gridContainer > * {
@@ -42,9 +58,9 @@ body,
 #gridContainer {
     display: grid;
     grid-gap: 0;
-    height: 50rem;
-    width: 50rem;
-    margin-left: 2rem;
+    height: calc(100vw * 1);
+    width: 100vw;
+    margin: auto 0;
     padding: 0;
     border: 2px solid var(--grey-4);
 }
@@ -53,7 +69,7 @@ body,
     height: auto;
     width: auto;
     background: white;
-    border: 0.5px solid lightgrey;
+    border: 0.1px solid var(--grey-1);
 }
 
 .cellNoBorder {
@@ -64,9 +80,40 @@ body,
 }
 
 .btn {
-    margin-top: 1rem;
+    
+    width: auto;
+    background: transparent;
+    border: 2px solid var(--white-1);
+    border-radius: 6px;
+    font-family: Avenir, sans-serif;
+    font-size: 16px;
+    color: var(--white-1);
 }
 
-input {
-    width: auto;
+.btn p {
+    margin: 0;
+    padding: 0;
+}
+
+.btn:hover,
+.btn:focus {
+    background: lightseagreen;
+}
+
+#inputColor {
+    height: 40%;
+    width: 60%;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+input[type="color" i] {
+    background-color: transparent;
+}
+
+@media screen and (min-width: 600px) {
+    #buttonContainer {
+        flex-direction: column;
+    }
 }

@@ -10,18 +10,21 @@
 </head>
 <body>
     <div id="pageContainer">
+     
+        <div id="gridContainer"></div>
         <div id="buttonContainer">
-            <label for="inputColor">Pen Colour</label>
-            <input type="color" name="inputColor" id="inputColor" value="#000000">
-            <button id="darkModeBtn" class="btn">Dark Mode</button>
+            <button id="inputColorBtn" class="btn">
+                <p>Color</p>
+                <input type="color" name="inputColor" id="inputColor" value="#000000">
+            </button>
+            <button id="darkModeBtn" class="btn">Shading</button>
             <button id="funkyBtn" class="btn">Funky Mode</button>
             <button id="eraserBtn" class="btn">Eraser</button>
-            <button id="clearBtn" class="btn">Clear Grid</button>
-            <button id="gridLinesBtn" class="btn">Turn Off Grid Lines</button>
+            <button id="clearBtn" class="btn">Clear</button>
+            <button id="gridLinesBtn" class="btn">Grid Lines Off</button>
             <label for="sizeSlider" id="gridSizeLabel">Grid Size: </label>
             <input type="range" name="sizeSlider" id="sizeSlider" class="slider" min="2" max="100" value="20">
         </div>
-        <div id="gridContainer"></div>
     </div>
 </body>
 </html>

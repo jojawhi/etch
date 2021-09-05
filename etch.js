@@ -175,38 +175,16 @@ gridLinesBtn.addEventListener("click", () => {
     const cells = document.querySelectorAll(".cell"); //adding this here made it work after resizing
     cells.forEach(item => {
         item.classList.toggle("cellNoBorder");
-    });   
+    });
+    
+    if (gridLinesBtn.textContent === "Grid Lines Off") {
+        gridLinesBtn.textContent = "Grid Lines On";
+    } else if (gridLinesBtn.textContent === "Grid Lines On") {
+        gridLinesBtn.textContent = "Grid Lines Off";
+    }
 });
 
 
-
-/*
-// Auto-generate buttons
-
-const grid64Btn = document.querySelector("#grid64Btn");
-grid64Btn.addEventListener("click", () => {
-
-    numberOfRows = 64;
-    numberOfColumns = 64;
-
-    setRows(numberOfRows);
-    setColumns(numberOfColumns);
-    gridContainer.textContent = "";
-    createGrid();
-});
-
-const grid100Btn = document.querySelector("#grid100Btn");
-grid100Btn.addEventListener("click", () => {
-
-    numberOfRows = 100;
-    numberOfColumns = 100;
-
-    setRows(numberOfRows);
-    setColumns(numberOfColumns);
-    gridContainer.textContent = "";
-    createGrid();
-});
-*/
 
 /*
 // Fade to black, does not work yet
