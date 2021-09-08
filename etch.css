@@ -167,7 +167,7 @@ input[type="color" i] {
    
    #pageContainer {
        display: grid;
-       grid-template-columns: 25% 1fr;
+       grid-template-columns: 20% 1fr;
        grid-template-rows: 15% 1fr 15%;
        grid-template-areas: 
             "title title"
@@ -178,7 +178,8 @@ input[type="color" i] {
    }
    
     .btn {
-       font-size: 18px;
+        font-size: 18px;
+        font-weight: 700;
    }
 
    #titleContainer {
@@ -195,9 +196,10 @@ input[type="color" i] {
     #buttonContainer {
         grid-area: buttons;
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(6, 1fr);
-        height: 100% ;
-        width: 100%;
+        grid-template-rows: repeat(6, 3.5rem);
+        align-content: center;
+        height: 65vh;
+        width: 80%;
     }
 
     #sizeSliderContainer {

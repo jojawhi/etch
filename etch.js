@@ -169,6 +169,7 @@ const inputColor = document.querySelector("#inputColor");
 
 function userColorSelection(event) {
     colorChoice = event.target.value;
+    //the below allows you to switch back to this after choosing another mode
     const cells = document.querySelectorAll(".cell");
     cells.forEach(item => {
         item.addEventListener("mouseover", (e) => {
