@@ -53,13 +53,21 @@ function setColumns(numberOfColumns) {
 function createCell() {
     let gridCell = document.createElement("div");
     gridCell.classList.add("cell");
-
+    
     // Single colour default
 
     gridCell.addEventListener("mouseover", () => {
         gridCell.style.backgroundColor = `${colorChoice}`;
     });
     
+    gridCell.addEventListener("touchstart", (e) => {
+        e.target.style.backgroundColor = `${colorChoice}`;
+    });
+
+    gridCell.addEventListener("touchmove", (e) => {
+        e.preventDefault();
+        e.target.style.backgroundColor = `${colorChoice}`;
+    });
 
     gridContainer.appendChild(gridCell);
 
@@ -88,7 +96,7 @@ function createGrid(gridNumber) {
 
 }
 
-createGrid(20);
+createGrid(40);
 
 
 
@@ -147,10 +155,10 @@ sizeSlider.addEventListener("input", () => {
     gridSizeText.textContent = sizeSlider.value + " x " + sizeSlider.value;
 });
 
-const gridSizeLabel = document.querySelector("#gridSizeLabel");
-const gridSizeText = document.createElement("p");
+const sizeSliderLabel = document.querySelector("#sizeSliderLabel");
+const gridSizeText = document.createElement("span");
 gridSizeText.textContent = sizeSlider.value + " x " + sizeSlider.value;
-gridSizeLabel.appendChild(gridSizeText);
+sizeSliderLabel.appendChild(gridSizeText);
 
 
 // Colour picker
@@ -161,10 +169,17 @@ const inputColor = document.querySelector("#inputColor");
 
 function userColorSelection(event) {
     colorChoice = event.target.value;
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach(item => {
+        item.addEventListener("mouseover", (e) => {
+            e.target.style.backgroundColor = `${colorChoice}`;
+        });
+    });
 }
 
 inputColor.addEventListener("change", userColorSelection, false);
 inputColor.addEventListener("input", userColorSelection, false);
+inputColor.addEventListener("click", userColorSelection, false);
 
 
 // Grid Lines

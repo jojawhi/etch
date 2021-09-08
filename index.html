@@ -6,24 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="etch.css">
     <script src="etch.js" defer></script>
-    <title>Etch-a-Sketch</title>
+    <title>Pixel Sketch</title>
 </head>
 <body>
     <div id="pageContainer">
-     
+        <div id="titleContainer">
+            <h1 id="titleText">Pixel Sketch</h1>
+        </div>
         <div id="gridContainer"></div>
         <div id="buttonContainer">
             <button id="inputColorBtn" class="btn">
                 <p>Color</p>
                 <input type="color" name="inputColor" id="inputColor" value="#000000">
             </button>
-            <button id="darkModeBtn" class="btn">Shading</button>
+            <button id="darkModeBtn" class="btn" disabled>Shading</button>
             <button id="funkyBtn" class="btn">Funky Mode</button>
             <button id="eraserBtn" class="btn">Eraser</button>
             <button id="clearBtn" class="btn">Clear</button>
             <button id="gridLinesBtn" class="btn">Grid Lines Off</button>
-            <label for="sizeSlider" id="gridSizeLabel">Grid Size: </label>
-            <input type="range" name="sizeSlider" id="sizeSlider" class="slider" min="2" max="100" value="20">
+        </div>
+        <div id="sizeSliderContainer">
+            <label for="sizeSlider" id="sizeSliderLabel">Grid Size: </label>
+            <input type="range" name="sizeSlider" id="sizeSlider" class="slider" min="2" max="80" value="40">
         </div>
     </div>
 </body>
