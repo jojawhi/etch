@@ -60,6 +60,8 @@ function createCell() {
         gridCell.style.backgroundColor = `${colorChoice}`;
     });
     
+    // attempts at touch functionality, not working yet
+    
     gridCell.addEventListener("touchstart", (e) => {
         e.target.style.backgroundColor = `${colorChoice}`;
     });
@@ -72,6 +74,8 @@ function createCell() {
     gridContainer.appendChild(gridCell);
 
     /*
+    // shading mode attempt, does not work yet
+
     gridCell.addEventListener("mouseover", (e) => {
         let timesHovered = 0;
         timesHovered++;
@@ -102,7 +106,7 @@ createGrid(40);
 
 // Buttons
 
-// Full Clear and Selective Erase, now works after resizing grid, but cannot go back to colour picker
+// Full Clear and Selective Erase
 
 const clearBtn = document.querySelector("#clearBtn");
 clearBtn.addEventListener("click", () => {
@@ -123,7 +127,7 @@ eraserBtn.addEventListener("click", () =>{
 });
 
 
-//Random colour mode, currently works on first load but not after resizing grid
+//Random colour mode
 
 const funkyBtn = document.querySelector("#funkyBtn");
 funkyBtn.addEventListener("click", () => {
@@ -163,8 +167,7 @@ sizeSliderLabel.appendChild(gridSizeText);
 
 // Colour picker
 
-//This solution taken from github repo of rlmoser99, don't fully understand how it works yet
-// Also does not work after selecting eraser or random colour mode
+//This solution taken from github repo of rlmoser99
 const inputColor = document.querySelector("#inputColor");
 
 function userColorSelection(event) {
@@ -203,7 +206,8 @@ gridLinesBtn.addEventListener("click", () => {
 
 
 /*
-// Fade to black, does not work yet
+// Shading mode, does not work yet
+
 const darkModeBtn = document.querySelector("#darkModeBtn")
 darkModeBtn.addEventListener("click", () => {
     
@@ -215,4 +219,11 @@ darkModeBtn.addEventListener("click", () => {
         });
     });
 });
+*/
+
+/*
+To do:
+- add shading functionality (still not sure how)
+- add touch screen support (still not sure how)
+- final tweaks on desktop layout
 */
