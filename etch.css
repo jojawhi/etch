@@ -178,12 +178,15 @@ input[type="color" i] {
    }
    
     .btn {
+        width: 80%;
+        margin: 0 auto;
         font-size: 18px;
         font-weight: 700;
    }
 
    #titleContainer {
        grid-area: title;
+       text-align: center;
    }
 
    #gridContainer {
@@ -199,7 +202,8 @@ input[type="color" i] {
         grid-template-rows: repeat(6, 3.5rem);
         align-content: center;
         height: 65vh;
-        width: 80%;
+        width: 100%;
+        padding-bottom: 100%;
     }
 
     #sizeSliderContainer {
