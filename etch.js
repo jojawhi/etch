@@ -202,22 +202,8 @@ inputColor.addEventListener("input", userColorSelection, false);
 inputColor.addEventListener("click", userColorSelection, false);
 
 
-// Grid Lines
 
-const gridLinesBtn = document.querySelector("#gridLinesBtn");
 
-gridLinesBtn.addEventListener("click", () => {
-    const cells = document.querySelectorAll(".cell"); //adding this here made it work after resizing
-    cells.forEach(item => {
-        item.classList.toggle("cellNoBorder");
-    });
-    
-    if (gridLinesBtn.textContent === "Grid Lines Off") {
-        gridLinesBtn.textContent = "Grid Lines On";
-    } else if (gridLinesBtn.textContent === "Grid Lines On") {
-        gridLinesBtn.textContent = "Grid Lines Off";
-    }
-});
 
 
 
@@ -225,7 +211,7 @@ gridLinesBtn.addEventListener("click", () => {
 // Shading mode, currently only goes to 0.1 opacity
 
 const shadingBtn = document.querySelector("#shadingBtn")
-
+/*
 shadingBtn.addEventListener("click", () => {
     const cells = document.querySelectorAll(".cell");
     cells.forEach(item => {
@@ -245,6 +231,24 @@ shadingBtn.addEventListener("click", () => {
         });
     });
 });
+*/
+
+shadingBtn.addEventListener("click", () => {
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach(item => {
+        let timesHovered = 0;
+        item.addEventListener("mouseover", (e) => {
+            timesHovered++;
+            if (timesHovered <= 10) {
+                e.target.style.backgroundColor = `var(--grey-${timesHovered})`;
+            } else if (timesHovered > 10) {
+                return;
+            } 
+        });
+    });
+});
+
+
 
 //Dark Mode
 
@@ -280,9 +284,41 @@ darkModeBtn.addEventListener("click", () => {
 
 });
 
+
+// Grid Lines
+
+const gridLinesBtn = document.querySelector("#gridLinesBtn");
+
+gridLinesBtn.addEventListener("click", () => {
+
+    const cells = document.querySelectorAll(".cell"); //adding this here made it work after resizing
+    
+    if (darkMode === false) {
+        cells.forEach(item => {
+            item.classList.toggle("cellNoBorder");
+        });
+    } else if (darkMode === true) {
+        cells.forEach(item => {
+            item.classList.toggle("darkCell");
+            item.classList.toggle("cellNoBorder");
+        });
+    }
+   
+    if (gridLinesBtn.textContent === "Grid Lines Off") {
+        gridLinesBtn.textContent = "Grid Lines On";
+    } else if (gridLinesBtn.textContent === "Grid Lines On") {
+        gridLinesBtn.textContent = "Grid Lines Off";
+    }
+
+});
+
+
+
+
 /*
 To do:
 - add shading functionality (still not sure how)
 - add touch screen support (still not sure how)
+- fix grid line toggle issue (the lines stay and get darker after switching between dark/light mode)
 - final tweaks on desktop layout
 */
