@@ -29,18 +29,6 @@ function createCells(numberOfCells) {
 createCells(16);
 */
 
-//Random colour mode
-
-
-
-/*
-function setRandomBackground() {
-    const randomColour = Math.floor(Math.random()*16777215).toString(16);
-    gridCell.addEventListener("mouseover", () => {
-        gridCell.style.backgroundColor = "#" + randomColour;
-    });
-}
-*/
 
 // Grid Functions
 
@@ -74,16 +62,6 @@ function createCell() {
     });
 
     gridContainer.appendChild(gridCell);
-
-    /*
-    // shading mode attempt, does not work yet
-
-    gridCell.addEventListener("mouseover", (e) => {
-        let timesHovered = 0;
-        timesHovered++;
-        e.style.backgroundColor = `var(--neutral-${timesHovered})`;
-    });
-    */
 }
 
 function createGrid(gridNumber) {
@@ -103,7 +81,6 @@ function createGrid(gridNumber) {
 }
 
 createGrid(40);
-
 
 
 // Buttons
@@ -202,36 +179,9 @@ inputColor.addEventListener("input", userColorSelection, false);
 inputColor.addEventListener("click", userColorSelection, false);
 
 
-
-
-
-
-
-
 // Shading mode, currently only goes to 0.1 opacity
 
 const shadingBtn = document.querySelector("#shadingBtn")
-/*
-shadingBtn.addEventListener("click", () => {
-    const cells = document.querySelectorAll(".cell");
-    cells.forEach(item => {
-        item.style.backgroundColor = `rgba(0, 0, 0, 0)`;
-        item.addEventListener("mouseover", (e) => {
-            if(e.target.style.backgroundColor.match(/rgba/)) {
-                let currentOpacity = Number(e.target.style.backgroundColor.slice(-4, -1));
-                if (currentOpacity <= 0.9) {
-                    e.target.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity + 0.1})`;
-                    e.target.classList.add("grey");
-                }
-            } else if (e.target.classList == "grey" && e.target.style.backgroundColor == `rgba(0, 0, 0)`) {
-                return;
-            } else {
-                e.target.style.backgroundColor = `rgba(0, 0, 0, 0.1)`;
-            }
-        });
-    });
-});
-*/
 
 shadingBtn.addEventListener("click", () => {
     const cells = document.querySelectorAll(".cell");
@@ -317,8 +267,6 @@ gridLinesBtn.addEventListener("click", () => {
 
 /*
 To do:
-- add shading functionality (still not sure how)
 - add touch screen support (still not sure how)
-- fix grid line toggle issue (the lines stay and get darker after switching between dark/light mode)
 - final tweaks on desktop layout
 */
