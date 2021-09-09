@@ -192,7 +192,7 @@ shadingBtn.addEventListener("click", () => {
             if (timesHovered <= 10) {
                 e.target.style.backgroundColor = `var(--grey-${timesHovered})`;
             } else if (timesHovered > 10) {
-                return;
+                e.target.style.backgroundColor = `var(--grey-10)`;
             } 
         });
     });
