@@ -1,4 +1,6 @@
 const gridContainer = document.querySelector("#gridContainer");
+const pageContainer = document.querySelector("#pageContainer");
+
 
 let colorChoice = "black";
 
@@ -61,7 +63,7 @@ function createCell() {
     });
     
     // attempts at touch functionality, not working yet
-    
+
     gridCell.addEventListener("touchstart", (e) => {
         e.target.style.backgroundColor = `${colorChoice}`;
     });
@@ -112,7 +114,7 @@ const clearBtn = document.querySelector("#clearBtn");
 clearBtn.addEventListener("click", () => {
     const cells = document.querySelectorAll(".cell");
     cells.forEach(item => {
-        item.style.backgroundColor = "#ffffff";
+        item.style.backgroundColor = "transparent";
     })
 });
 
@@ -134,12 +136,26 @@ funkyBtn.addEventListener("click", () => {
     const cells = document.querySelectorAll(".cell");
     cells.forEach(item => {
         item.addEventListener("mouseover", (e) => {
+            
+            //RGB random colour, brighter
+            /*
             let red = Math.floor(Math.random() * 255);
             let green = Math.floor(Math.random() * 255);
             let blue = Math.floor(Math.random() * 255);
             let randomColour = `rgb(${red}, ${green}, ${blue})`;
+            */
 
-            e.target.style.backgroundColor = randomColour;
+            
+            //HSL random colour, more muted
+            /*
+            let hue = Math.floor(Math.random() * 360);
+            let saturation = Math.floor(Math.random() * 100);
+            let lightness = Math.floor(Math.random() * 50);
+            */
+            let randomColor = `hsl(${Math.floor(Math.random() * 360)}, 80%, 70%)`;
+            
+
+            e.target.style.backgroundColor = randomColor;
         });
     });
 });
@@ -205,21 +221,64 @@ gridLinesBtn.addEventListener("click", () => {
 
 
 
-/*
-// Shading mode, does not work yet
 
-const darkModeBtn = document.querySelector("#darkModeBtn")
-darkModeBtn.addEventListener("click", () => {
-    
+// Shading mode, currently only goes to 0.1 opacity
+
+const shadingBtn = document.querySelector("#shadingBtn")
+
+shadingBtn.addEventListener("click", () => {
+    const cells = document.querySelectorAll(".cell");
     cells.forEach(item => {
+        item.style.backgroundColor = `rgba(0, 0, 0, 0)`;
         item.addEventListener("mouseover", (e) => {
-            let timesHovered = 0;
-            timeHovered++;
-            e.target.style.backgroundColor = `var(--neutral-${timesHovered})`;
+            if(e.target.style.backgroundColor.match(/rgba/)) {
+                let currentOpacity = Number(e.target.style.backgroundColor.slice(-4, -1));
+                if (currentOpacity <= 0.9) {
+                    e.target.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity + 0.1})`;
+                    e.target.classList.add("grey");
+                }
+            } else if (e.target.classList == "grey" && e.target.style.backgroundColor == `rgba(0, 0, 0)`) {
+                return;
+            } else {
+                e.target.style.backgroundColor = `rgba(0, 0, 0, 0.1)`;
+            }
         });
     });
 });
-*/
+
+//Dark Mode
+
+const buttons = document.querySelectorAll("button.btn");
+const darkModeBtn = document.querySelector("#darkModeBtn");
+
+let darkMode = false;
+
+darkModeBtn.addEventListener("click", () => {
+    
+    gridContainer.classList.toggle("darkGrid");
+
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach(item => {
+        item.classList.toggle("darkCell");
+    });
+
+    buttons.forEach(item => {
+        item.classList.toggle("darkBtn");
+    });
+
+    pageContainer.classList.toggle("darkPage");
+    sizeSlider.classList.toggle("darkSlider");
+    sizeSliderLabel.classList.toggle("darkLabel");
+
+    if (darkMode === false) {
+        darkMode = true;
+        darkModeBtn.textContent = "Light Mode";
+    } else if (darkMode === true) {
+        darkMode = false;
+        darkModeBtn.textContent = "Dark Mode";
+    }
+
+});
 
 /*
 To do:

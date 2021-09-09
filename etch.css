@@ -1,5 +1,6 @@
 :root {
     --white-1: hsl(45, 50%, 95%);
+    --blue-1: hsl(200, 80%, 50%);
     --grey-1: hsl(0, 0%, 90%);
     --grey-2: hsl(0, 0%, 80%);
     --grey-3: hsl(0, 0%, 70%);
@@ -29,10 +30,11 @@ body,
     width: 100%;
     padding: 0;
     margin: 0;
-    background: var(--grey-8);
+    background: var(--grey-2);
     font-family: Avenir, sans-serif;
     font-weight: 400;
     font-size: 20px;
+    transition: 0.5s;
 }
 
 #titleContainer {
@@ -42,7 +44,7 @@ body,
 
 #titleText {
     font-size: 1.5rem;
-    color: var(--white-1);
+    color: var(--grey-9);
 }
 
 #buttonContainer {
@@ -66,32 +68,34 @@ body,
     height: calc(100vw * 1);
     width: 100vw;
     padding: 0;
+    background-color: white;
     border: 2px solid var(--grey-4);
 }
 
 .cell {
     height: auto;
     width: auto;
-    background: white;
-    border: 0.1px solid var(--grey-1);
+    background: transparent;
+    border: 0.5px solid var(--grey-1);
 }
 
 .cellNoBorder {
     height: auto;
     width: auto;
-    background: white;
-    border: none;
+    background: transparent;
+    border: none !important;
 }
 
 .btn {
     width: auto;
     background: transparent;
-    border: 2px solid var(--white-1);
+    border: 2px solid var(--grey-8);
     border-radius: 6px;
     text-align: center;
     font-family: Avenir, sans-serif;
     font-size: 16px;
-    color: var(--white-1);
+    color: var(--grey-8);
+    transition: 0.8s;
 }
 
 .btn p {
@@ -101,8 +105,8 @@ body,
 
 .btn:hover,
 .btn:focus {
-    background: var(--grey-2);
-    color: var(--grey-10);
+    background: var(--grey-4);
+    color: var(--white-1);
 }
 
 .btn:disabled {
@@ -138,27 +142,55 @@ input[type="color" i] {
 #sizeSliderLabel {
     font-size: 16px;
     margin-bottom: 1rem;
-    color: var(--white-1);
+    color: var(--grey-8);
 }
 
 .slider {
     -webkit-appearance: none;
     height: 0.4rem;
     width: 100%;
-    background: var(--white-1);
+    background: var(--grey-8);
     border-radius: 7px;
 }
 
-/* Chrome */
+/* Chrome, from rlmoser99 */
 
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     height: 22px;
     width: 22px;
-    background: lightseagreen;
+    background: var(--blue-1);
     border-radius: 50%;
     cursor: pointer;
+}
+
+/* Dark mode */
+
+.darkPage {
+    background-color: var(--grey-9) !important;
+}
+
+.darkBtn {
+    color: var(--white-1) !important;
+    border: 2px solid var(--white-1) !important;
+}
+
+.darkGrid {
+    background-color: var(--grey-8) !important;
+    
+}
+
+.darkCell {
+    border: 0.5px solid var(--grey-7) !important;
+}
+
+.darkSlider {
+    background: var(--white-1) !important;
+}
+
+.darkLabel {
+    color: var(--white-1) !important;
 }
 
 /* Media Queries */
@@ -199,7 +231,7 @@ input[type="color" i] {
     #buttonContainer {
         grid-area: buttons;
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(6, 3.5rem);
+        grid-template-rows: repeat(7, 3.5rem);
         align-content: center;
         height: 65vh;
         width: 100%;
