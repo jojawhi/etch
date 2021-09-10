@@ -49,16 +49,17 @@ function createCell() {
     gridCell.addEventListener("mouseover", () => {
         gridCell.style.backgroundColor = `${colorChoice}`;
     });
-    
-    // attempts at touch functionality, not working yet
 
-    gridCell.addEventListener("touchstart", (e) => {
-        e.target.style.backgroundColor = `${colorChoice}`;
-    });
+    // Emulate mouse movement
 
     gridCell.addEventListener("touchmove", (e) => {
-        e.preventDefault();
-        e.target.style.backgroundColor = `${colorChoice}`;
+        // https://stackoverflow.com/q/3918842
+        const touchLocation = e.originalEvent ? e.originalEvent.changedTouches[0] : e.touches[0]
+        const target = document.elementFromPoint(touchLocation.clientX, touchLocation.clientY);
+
+        if (target) {
+            target.style.backgroundColor = `${colorChoice}`;
+        }
     });
 
     gridContainer.appendChild(gridCell);
