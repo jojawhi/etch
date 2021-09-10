@@ -78,6 +78,8 @@ body,
     width: auto;
     background: transparent;
     border: 0.5px solid var(--grey-1);
+    /* https://stackoverflow.com/a/43275544 */
+    touch-action: none;
 }
 
 .cellNoBorder {
