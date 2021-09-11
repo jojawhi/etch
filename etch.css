@@ -1,7 +1,7 @@
 :root {
     --white-1: hsl(45, 50%, 95%);
     --blue-1: hsl(190, 100%, 54%);
-    --bg-1: hsl(190, 15%, 90%);
+    --bg-1: hsl(190, 50%, 80%);
     --bg-2: hsl(190, 50%, 70%);
     --grey-1: hsl(0, 0%, 90%);
     --grey-2: hsl(0, 0%, 80%);
@@ -94,7 +94,7 @@ body,
     width: 100%;
     margin: 0;
     padding: 0;
-    background: transparent;
+    background: var(--bg-1);
 }
 
 #titleText {
@@ -112,6 +112,7 @@ body,
     height: 20%;
     width: 100%;
     padding: 0.5rem;
+    background: var(--bg-1);
 }
 
 #gridContainer > * {
@@ -174,11 +175,13 @@ body,
 }
 
 #inputColor {
-    height: 45%;
+    height: 65%;
     width: 80%;
-    margin: 0;
+    margin-top: -5px;
     padding: 0;
     border: none;
+    border-radius: 6px;
+    
 }
 
 input[type="color" i] {
@@ -207,7 +210,7 @@ input[type="color" i] {
     -webkit-appearance: none;
     height: 0.4rem;
     width: 100%;
-    background: var(--grey-8);
+    background: var(--grey-7);
     border-radius: 7px;
 }
 
@@ -223,18 +226,17 @@ input[type="color" i] {
     cursor: pointer;
 }
 
+
 /* Dark mode */
 
 .darkPage {
     background-color: var(--grey-9) !important;
 }
 
-
 .darkBtn {
     color: var(--white-1) !important;
     border: 2px solid var(--white-1) !important;
 }
-
 
 .darkGrid {
     background-color: var(--grey-8) !important;
@@ -252,6 +254,7 @@ input[type="color" i] {
 .darkLabel {
     color: var(--white-1) !important;
 }
+
 
 /* Media Queries */
 
