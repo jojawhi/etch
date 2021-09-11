@@ -57,8 +57,20 @@ function createCell() {
     });
 
     gridCell.addEventListener("touchmove", (e) => {
+        
+        /*
         e.preventDefault();
         e.target.style.backgroundColor = `${colorChoice}`;
+        */
+
+        //Emulate mouse movement (solution from Jesse)
+        const touchLocation = e.originalEvent ? e.originalEvent.changedTouches[0] : e.touches[0];
+        const target = document.elementFromPoint(touchLocation.clientX, touchLocation.clientY);
+
+        if (target) {
+            target.style.backgroundColor = `${colorChoice}`;
+        }
+
     });
 
     gridContainer.appendChild(gridCell);
@@ -204,6 +216,9 @@ shadingBtn.addEventListener("click", () => {
 
 const buttons = document.querySelectorAll("button.btn");
 const darkModeBtn = document.querySelector("#darkModeBtn");
+const titleText = document.querySelector("#titleText");
+const lightSide = document.querySelector("#lightSide");
+const darkSide = document.querySelector("#darkSide");
 
 let darkMode = false;
 
@@ -223,13 +238,15 @@ darkModeBtn.addEventListener("click", () => {
     pageContainer.classList.toggle("darkPage");
     sizeSlider.classList.toggle("darkSlider");
     sizeSliderLabel.classList.toggle("darkLabel");
+    titleText.classList.toggle("darkLabel");
 
     if (darkMode === false) {
         darkMode = true;
-        darkModeBtn.textContent = "Light Mode";
+        darkSide.classList.add("activeMode");
     } else if (darkMode === true) {
         darkMode = false;
-        darkModeBtn.textContent = "Dark Mode";
+        darkSide.classList.remove("activeMode");
+        lightSide.classList.add("activeMode");
     }
 
 });

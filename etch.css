@@ -1,6 +1,6 @@
 :root {
     --white-1: hsl(45, 50%, 95%);
-    --blue-1: hsl(200, 80%, 50%);
+    --blue-1: hsl(190, 100%, 54%);
     --grey-1: hsl(0, 0%, 90%);
     --grey-2: hsl(0, 0%, 80%);
     --grey-3: hsl(0, 0%, 70%);
@@ -37,9 +37,62 @@ body,
     transition: 0.5s;
 }
 
-#titleContainer {
+#darkModeButtonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 10%;
+    margin: auto 0;
+    background: transparent;
+    padding: 5px;
+}
+
+#darkModeBtn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0;
+    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
+    background: transparent;
+    border: none;
+    transition: 0.5s;
+}
+
+#lightSide {
+    height: 20px;
+    width: 10px;
+    align-self: center;
+    justify-self: flex-end;
+    background: white;
+    border-bottom-left-radius: 22px;
+    border-top-left-radius: 22px;
+}
+
+#darkSide {
+    height: 20px;
+    width: 10px;
+    align-self: center;
+    justify-self: flex-start;
+    background: black;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.activeMode {
+    box-shadow: 0 0 3px 1px var(--blue-1);
+}
+
+#titleContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: transparent;
 }
 
 #titleText {
@@ -78,6 +131,8 @@ body,
     width: auto;
     background: transparent;
     border: 0.5px solid var(--grey-1);
+    /* Solution from Jesse to prevent scrolling on drag */
+    touch-action: none;
 }
 
 .cellNoBorder {
@@ -172,10 +227,12 @@ input[type="color" i] {
     background-color: var(--grey-9) !important;
 }
 
+
 .darkBtn {
     color: var(--white-1) !important;
     border: 2px solid var(--white-1) !important;
 }
+
 
 .darkGrid {
     background-color: var(--grey-8) !important;
