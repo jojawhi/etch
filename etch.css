@@ -1,6 +1,8 @@
 :root {
     --white-1: hsl(45, 50%, 95%);
     --blue-1: hsl(190, 100%, 54%);
+    --bg-1: hsl(190, 15%, 90%);
+    --bg-2: hsl(190, 50%, 70%);
     --grey-1: hsl(0, 0%, 90%);
     --grey-2: hsl(0, 0%, 80%);
     --grey-3: hsl(0, 0%, 70%);
@@ -30,7 +32,7 @@ body,
     width: 100%;
     padding: 0;
     margin: 0;
-    background: var(--grey-2);
+    background: var(--bg-1);
     font-family: Avenir, sans-serif;
     font-weight: 400;
     font-size: 20px;
@@ -161,7 +163,7 @@ body,
 
 .btn:hover,
 .btn:focus {
-    background: var(--grey-4);
+    background: var(--bg-2);
     color: var(--white-1);
 }
 

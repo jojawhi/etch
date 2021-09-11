@@ -105,6 +105,7 @@ clearBtn.addEventListener("click", () => {
     cells.forEach(item => {
         item.style.backgroundColor = "transparent";
     })
+
 });
 
 const eraserBtn = document.querySelector("#eraserBtn");
@@ -146,6 +147,22 @@ funkyBtn.addEventListener("click", () => {
 
             e.target.style.backgroundColor = randomColor;
         });
+
+        item.addEventListener("touchmove", (e) => {
+        
+            /*
+            e.preventDefault();
+            e.target.style.backgroundColor = `${colorChoice}`;
+            */
+    
+            //Emulate mouse movement (solution from Jesse)
+            const touchLocation = e.originalEvent ? e.originalEvent.changedTouches[0] : e.touches[0];
+            const target = document.elementFromPoint(touchLocation.clientX, touchLocation.clientY);
+    
+            if (target) {
+                target.style.backgroundColor = `hsl(${Math.floor(Math.random() * 360)}, 80%, 70%)`;
+            }
+        });
     });
 });
 
@@ -172,7 +189,7 @@ sizeSliderLabel.appendChild(gridSizeText);
 
 // Colour picker
 
-//This solution taken from github repo of rlmoser99
+//This solution adapted from github repo of rlmoser99
 const inputColor = document.querySelector("#inputColor");
 
 function userColorSelection(event) {
@@ -183,7 +200,19 @@ function userColorSelection(event) {
         item.addEventListener("mouseover", (e) => {
             e.target.style.backgroundColor = `${colorChoice}`;
         });
-    });
+
+        item.addEventListener("touchmove", (e) => {
+    
+            //Emulate mouse movement (solution from Jesse)
+            const touchLocation = e.originalEvent ? e.originalEvent.changedTouches[0] : e.touches[0];
+            const target = document.elementFromPoint(touchLocation.clientX, touchLocation.clientY);
+    
+            if (target) {
+                target.style.backgroundColor = `${colorChoice}`;
+            }
+    
+        });
+    });  
 }
 
 inputColor.addEventListener("change", userColorSelection, false);
