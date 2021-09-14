@@ -129,6 +129,10 @@ body,
     border: 2px solid var(--grey-4);
 }
 
+.hidden {
+    display: none;
+}
+
 .cell {
     height: auto;
     width: auto;

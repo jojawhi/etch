@@ -322,36 +322,48 @@ darkModeBtn.addEventListener("click", () => {
 // Grid Lines
 
 const gridLinesBtn = document.querySelector("#gridLinesBtn");
+let gridLinesVisible = false; // We can no easily access the visibility of grid lines in the whole app, if we ever would need it
 
 gridLinesBtn.addEventListener("click", () => {
 
     const cells = document.querySelectorAll(".cell"); //adding this here made it work after resizing
-    
-    if (darkMode === false && gridLinesBtn.textContent === "Grid Lines Off") {
+
+    // Toggle variable since we click the button (false = true, true = false)
+    gridLinesVisible = ! gridLinesVisible
+
+    // You could clean the code below up by using classList.toggle :-)
+    if (darkMode === false && gridLinesVisible === false) {
         cells.forEach(item => {
             item.classList.add("cellNoBorder");
         });
-    } else if (darkMode === false && gridLinesBtn.textContent === "Grid Lines On") {
+    } else if (darkMode === false && gridLinesVisible === true) {
         cells.forEach(item => {
             item.classList.remove("cellNoBorder");
         });
-    } else if (darkMode === true && gridLinesBtn.textContent === "Grid Lines Off") {
+    } else if (darkMode === true && gridLinesVisible === false) {
         cells.forEach(item => {
             item.classList.remove("darkCell");
             item.classList.add("cellNoBorder");
         });
-    } else if (darkMode === true && gridLinesBtn.textContent === "Grid Lines On") {
+    } else if (darkMode === true && gridLinesVisible === true) {
         cells.forEach(item => {
             item.classList.add("darkCell");
             item.classList.remove("cellNoBorder");
         });
     }
-   
+
+    /*
+    Woohoo! This code is now not necessary, JS shouldn't manage or check by content. That is the job of HTML
     if (gridLinesBtn.textContent === "Grid Lines Off") {
         gridLinesBtn.textContent = "Grid Lines On";
     } else if (gridLinesBtn.textContent === "Grid Lines On") {
         gridLinesBtn.textContent = "Grid Lines Off";
     }
+    */
+
+    // Toggle visibility of the grid lines button text elements (not very pretty, but you get the point)
+    document.querySelector(`[data-grid-lines=${gridLinesVisible ? 'on' : 'off'}]`).classList.remove('hidden')
+    document.querySelector(`[data-grid-lines=${gridLinesVisible ? 'off' : 'on'}]`).classList.add('hidden')
 
 });
 
