@@ -6,7 +6,7 @@ This was a fun project to tackle, and it was my first foray into touch-screen fu
 
 The main focus for this project was to practice CSS Grid and get a solid introduction to event handlers.
 
-## Key Takeaway
+## Takeaway
 
 In addition to practicing with event handlers, a big takeaway from this project was some feedback I received on my code. Essentially, it was this:
 
@@ -20,4 +20,12 @@ I got lost in the practice and forgot my best practices. This was a great remind
 
 ## Future Additions
 
+I want to maintain this project and turn it into something more useful. These are some ideas I have:
 
+  - A random phrase generator so it can be used as a mini Pictionary or drawing game.
+  - An export to JPG/PNG/PDF feature so people can save and share their creations.
+  - A UI redesign.
+
+## Known Bugs
+
+  - There is an issue with the grid lines button when it is pressed multiple times and when switching between light and dark mode. This has to do with inefficiencies in how the CSS class changes are done in JS. The code will need to be refactored to address this.
