@@ -1,10 +1,12 @@
 # Jojawhi's "Etch-a-Sketch" assignment for The Odin Project
 
-This was a fun project to tackle, and it was my first foray into touch-screen functionality. I had a little help from a generous mentor who pointed me in the right direction for that aspect.
+This was a fun project to tackle, and it was my first foray into touch-screen functionality.
 
 ## Learning Focus
 
-The main focus for this project was to practice CSS Grid and get a solid introduction to event handlers.
+The main course focus for this project was to practice CSS Grid and get a solid introduction to event handlers.
+
+I also wanted to learn how to make the grid changes occur on a touch-screen device, which took some internet research and a little guidance from a generous mentor, who pointed me in the right direction.
 
 ## Takeaway
 
@@ -29,3 +31,4 @@ I want to maintain this project and turn it into something more useful. These ar
 ## Known Bugs
 
   - There is an issue with the grid lines button when it is pressed multiple times and when switching between light and dark mode. This has to do with inefficiencies in how the CSS class changes are done in JS. The code will need to be refactored to address this.
+  - The shading function doesn't fully work on touch-screen devices yet. The cause is known, and it should be addressed when the above refactor is completed.
